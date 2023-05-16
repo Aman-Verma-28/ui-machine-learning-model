@@ -10,7 +10,7 @@ class PredictorModel(models.Model):
     va = models.FloatField()
     vb = models.FloatField()
     vc = models.FloatField()
-    ans = models.FloatField(null=True, blank=True)
+    ans = models.CharField(null=True, blank=True, max_length=50)
 
     def save(self, *args, **kwargs):
         ans = predictor(self.ia, self.ib, self.ic, self.va, self.vb, self.vc)

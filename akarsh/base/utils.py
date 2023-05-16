@@ -446,4 +446,14 @@ def predictor(ia, ib, ic, va, vb, vc):
     y=pd.DataFrame(x)
     y
     ans=decision.predict(y)
+    mapping_dict = {
+        0 : "LLL Fault (Between Phases A, B and C)",
+        1 : "LLLG Fault (Three Phase Symmetrical Fault)",
+        2 : "LLG Fault (Between Phases A, B and Ground)",
+        3 : "LG Fault (Between Phases A and Ground)",
+        4 : "LL Fault (Between Phase B and Phase C)",
+        5 : "No Fault"
+    }
+    if ans[0] in mapping_dict:
+        return mapping_dict[ans[0]]
     return ans[0]
